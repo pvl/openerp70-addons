@@ -37,6 +37,9 @@
                                 <page string="Goal">
                                     <field name="goal"/>
                                 </page>
+                                <page string="Description">
+                                    <field name="note"/>
+                                </page>
                             </notebook>
                         </group>
                     </sheet>
