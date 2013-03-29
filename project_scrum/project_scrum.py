@@ -294,7 +294,7 @@ class projectScrumProductBacklog(osv.osv):
 
     def button_cancel(self, cr, uid, ids, context=None):
         obj_project_task = self.pool.get('project.task')
-        self.write(cr, uid, ids, {'state':'cancel'}, context=context)
+        self.write(cr, uid, ids, {'state':'cancel', 'active':False}, context=context)
         for backlog in self.browse(cr, uid, ids, context=context):
             obj_project_task.write(cr, uid, [i.id for i in backlog.tasks_id], {'state': 'cancelled'})
         return True
@@ -314,7 +314,7 @@ class projectScrumProductBacklog(osv.osv):
     
     def button_close(self, cr, uid, ids, context=None):
         obj_project_task = self.pool.get('project.task')
-        self.write(cr, uid, ids, {'state':'done', 'date_done':time.strftime('%Y-%m-%d')}, context=context)
+        self.write(cr, uid, ids, {'state':'done', 'active':False, 'date_done':time.strftime('%Y-%m-%d')}, context=context)
         for backlog in self.browse(cr, uid, ids, context=context):
             obj_project_task.write(cr, uid, [i.id for i in backlog.tasks_id], {'state': 'done'})
         return True

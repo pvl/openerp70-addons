@@ -219,7 +219,7 @@
                     <field name="stage_id"/>
                     <field name="open"/>
                     <field name="role_id"/>
-                    <templates>
+                    <templates attrs="{'invisible':[('state', '=', 'done')]}">
                         <t t-name="kanban-box">
                             <t t-set="record.group_fancy" t-value="1" />
                             <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click_edit">
