@@ -2,7 +2,11 @@
 <openerp>
     <data>
         <menuitem name="Account" id="portal_account" parent="portal.portal_menu" sequence="40"/>
-        
+        <!--
+        <menuitem name="Report" id="portal_account_report" parent="portal_account" sequence="2"/>
+        <menuitem name="Legal Reports" id="portal_account_legalReport" parent="portal_account_report" sequence="2"/>
+        <menuitem name="Accounting Reports" id="portal_account_accountingReport" parent="portal_account_legalReport" sequence="2"/>
+        -->
         <record id="open_view_account_chart_wizard_form" model="ir.actions.act_window">
             <field name="name">Chart of Accounts</field>
             <field name="res_model">account.chart</field>
@@ -13,8 +17,31 @@
             <field name="context">{}</field>
             <field name="target">new</field>
         </record>
-
         <menuitem name="Chart of Accounts" id="portal_account_accountChart_wizard" parent="portal_account"
             action="open_view_account_chart_wizard_form" sequence="1"/>
+        
+        <!--
+        <record id="open_view_account_report_general_ledger" model="ir.actions.act_window">
+            <field name="name">General Ledger</field>
+            <field name="res_model">account.report.general.ledger</field>
+            <field name="domain">[]</field>
+            <field name="view_id" ref="account.account_report_general_ledger_view"/>
+            <field name="context">{}</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem icon="STOCK_INDENT" name="General Ledger" id="portal_account_accountReportGeneralLedger_wizard" parent="portal_account"
+            action="open_view_account_report_general_ledger" sequence="1"/>
+        
+        <record id="open_view_account_balance_sheet" model="ir.actions.act_window">
+            <field name="name">General Ledger</field>
+            <field name="res_model">accounting.report</field>
+            <field name="domain">[]</field>
+            <field name="view_id" ref="account.accounting_report_view"/>
+            <field name="context">{}</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem icon="STOCK_INDENT" name="Balance Sheet" id="portal_account_accountReportBalanceSheet_wizard" parent="portal_account"
+            action="open_view_account_balance_sheet" sequence="3"/>
+        -->
     </data>
 </openerp>
