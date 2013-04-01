@@ -6,8 +6,11 @@
             <field name="name">view.crm.lead.inherit.form</field>
             <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
             <field name="arch" type="xml">
-                <field name="contact_name" position="before">
+                <label for="contact_name" position="before">
                     <field name="activity"/>
+                </label>
+                <field name="partner_name" position="after">
+                    <field name="company_registration_number"/>
                 </field>
             </field>
         </record>
