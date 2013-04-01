@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <label for="contact_name" position="before">
                     <field name="activity"/>
+                    <field name="company_professional_code"/>
                 </label>
                 <field name="partner_name" position="after">
                     <field name="company_registration_number"/>
