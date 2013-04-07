@@ -304,10 +304,12 @@ class projectScrumProductBacklog(osv.osv):
         return True
     
     def button_open(self, cr, uid, ids, context=None):
-        lines = self.read(cr, uid, ids, ['sprint_id'])
+        lines = self.read(cr, uid, ids, ['sprint_id', 'acceptance_testing'])
         for line in lines:
             if line['sprint_id'] == False:
                 raise osv.except_osv(_("Warning !"), _("You must affect this user story in a sprint before open it."))
+            elif line['acceptance_testing'] == False:
+                raise osv.except_osv(_("Warning !"), _("You must define acceptance testing before open this user story"))
             else:
                 self.write(cr, uid, ids, {'state':'open', 'date_open':time.strftime('%Y-%m-%d')}, context=context)
                 return True
@@ -327,7 +329,7 @@ class projectScrumProductBacklog(osv.osv):
         'role_id': fields.many2one('project.scrum.role', "As", required=True, readonly=True, states={'draft':[('readonly',False)]}),
         'name' : fields.char('I want', size=128, required=True, readonly=True, states={'draft':[('readonly',False)]}),
         'for_then' : fields.char('For', size=128, required=True, readonly=True, states={'draft':[('readonly',False)]}),
-        'acceptance_testing': fields.text("Acceptance testing", required=True, readonly=True, states={'draft':[('readonly',False)]}),
+        'acceptance_testing': fields.text("Acceptance testing", readonly=True, states={'draft':[('readonly',False)]}),
         
         'description': fields.text("Description"),
         'sequence' : fields.integer('Sequence', help="Gives the sequence order when displaying a list of product backlog."),
