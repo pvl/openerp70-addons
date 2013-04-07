@@ -9,7 +9,7 @@
                 <tree string="Sandbox" editable="top">
                     <field name="role_id"/>
                     <field name="name"/>
-                    <field name="for"/>
+                    <field name="for_then"/>
                     <field name="project_id"/>
                     <button type="action"
                             name="%(action_scrum_sandbox_to_backlog)d"
@@ -25,7 +25,7 @@
                 <form string="Sandbox">
                     <field name="role_id"/>
                     <field name="name"/>
-                    <field name="for"/>
+                    <field name="for_then"/>
                     <field name="project_id"/>
                 </form>
             </field>
